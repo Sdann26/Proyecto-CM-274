@@ -1,8 +1,7 @@
 
-#Proyecto CM-274
+# Proyecto CM-274
 
-
-Miembros:
+## Miembros:
 -Blas Salas, Israel Danilo
 -Leiva Mier, Samuel
 -Janampa Bautista, Joel
