@@ -3,13 +3,13 @@
 
 ## Miembros: ##
 
--Blas Salas, Israel Danilo  
+* Blas Salas, Israel Danilo  
   : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
--Leiva Mier, Samuel  
-  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
--Janampa Bautista,Edgar Joel  
-  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
--Micha Velazque, Junior  
-  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
--Bustillos Robles, Brian Brenner
-  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
+* Leiva Mier, Samuel  
+  : Github: https://github.com/SamuelLeiva/Algoritmos-probabil-sticos  
+* Janampa Bautista,Edgar Joel  
+  : Github: https://github.com/JoelJanampaBautista/Trabajo-grupal  
+* Micha Velazque, Junior  
+  : Github: https://github.com/JMicha23/Proyecto-274  
+* Bustillos Robles, Brian Brenner  
+  : Github: https://github.com/brenner-08/probabilidades 
