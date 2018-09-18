@@ -6,5 +6,5 @@ Miembros:
 -Blas Salas, Israel Danilo
 -Leiva Mier, Samuel
 -Janampa Bautista, Joel
--Micha, Junior
+-Micha Velazque, Junior
 -Bustillos, Brenner
