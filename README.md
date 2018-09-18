@@ -5,6 +5,6 @@
 
 -Blas Salas, Israel Danilo  
 -Leiva Mier, Samuel  
--Janampa Bautista, Joel  
+-Janampa Bautista,Edgar Joel  
 -Micha Velazque, Junior  
--Bustillos, Brenner  
+-Bustillos Robles, Brian Brenner  
