@@ -1,10 +1,15 @@
 
-# Proyecto CM-274
+# Proyecto CM-274 #
 
-## Miembros:
+## Miembros: ##
 
 -Blas Salas, Israel Danilo  
+  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
 -Leiva Mier, Samuel  
+  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
 -Janampa Bautista,Edgar Joel  
+  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
 -Micha Velazque, Junior  
--Bustillos Robles, Brian Brenner  
+  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
+-Bustillos Robles, Brian Brenner
+  : Github: https://github.com/Sdann26/Estructuras-Probabilisticas  
