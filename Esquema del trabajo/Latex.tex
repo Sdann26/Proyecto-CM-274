@@ -48,7 +48,47 @@ Este articulo matemático-computacional presenta los resultados obtenidos median
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCCIO\'N}
 
-usar la seccion para poner 
+Este artículo describe tres estructura de datos probabilísticos : Bloom Fitler , Count-min sketch e HyperLogLog , programaremos cada uno en lenguaje R y comprobaremos su funcionamiento para el conteo y las consultas referidas a elementos dentro de un conjunto.
+\subsection{Objetivos}
+\begin{itemize}
+    \item Usar la estructura bloom Fitler para hacer consultas sobre elementos que puedas pertenecer a la estructura. 
+    \item Usar la estructura Count-min sketch.
+    \item Usar la estructura HyperLogLog para calcular el número aproximado de elementos en un multiconjunto. 
+\end{itemize}
+En esta oportunidad usaremos cada una de las tres estructuras  . En el primer (Bloom Filter) generaremos un conjuntos de n elementos aleatorios , seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch , finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
+\subsection{BLOOM FITLER}
+\begin{itemize}
+    \item Estructura de datos espacio eficiente (Borton Howard Bloom -1970).
+    \item Usado para probar si un elemento es miembro de un conjunto.
+    \item Una consulta arroja ``posiblemente en el conjunto" (falso positivo)  o ``definitivamente no en el conjunto" (falso negativo).
+    \item Se puede agregar elementos al conjunto pero no removerlos.
+    \item Mayores elementos con añadidos , mayores probabilidad de falsos positivos .
+    \item Generalmente , menos de 10 bits por elemento son requeridos para un 1\% de probabilidad falso positivo , independientemente del tamaño o número de elementos del set .
+    \begin{enumerate}
+    \item {\bf Descripción de un algoritmo}: Arreglo de m bits , todo en 0 . También debe haber k funciones hash , cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
+    \item {\bf Para añadir un elemento}: Se alimenta a cada una de las k funciones para obtener k posiciones en el arreglo . Todas esas posiciones se van a 1 .
+    \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las k funciones para obtener k posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto , si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
+\end{enumerate}
+\subsection{COUNT-MIN SKETCH}
+\begin{itemize}
+    \item Sirve como una tabla de frecuencia de eventos en una data stream . Usa funciones hash para mapear eventos a frecuencias , pero solo usa espacios sub-lineales a costa de "sobrecontar algunos eventos a causa de colisiones (2003-Graham Cormode , S.Muthu Muthokrishnan).
+    \item Esencialmente es lo mismo que Bloom fitler, pero son usados de manera diferente y se ponen el tamaño de manera diferente.
+\end{itemize}
+\begin{enumerate}
+    \item {\bf Estructura}: El objetivo de count-min sketch es la de consumir un stream de eventos , uno a la vez , y contar la frecuencia de los diferentes tipos de eventos en el stream . En cualquier momento el sketch puede ser consultado para la frecuencia de un particular tipo de evento y regresará un estimado de esta frecuencia dentro de una cierta distancia de la frecuencia real , con una cierta probabilidad.
+\end{enumerate}
+\subsection{HYPERLOGLOG}
+\begin{itemize}
+    \item Algoritmo para el conteo distintivo , aproximando el número de distintos elementos en un multiconjunto . Es capaz de estimar cardinalidades mayor a $10^9$ con una certeza del 2\% usando 1,5 kb de memoria.
+\end{itemize}
+\begin{enumerate}
+    \item {\bf Algoritmo}: Se basa en la observación de que las cardinalidades de un multiconjunto de números aleatorios uniformemente distribuidos pueden ser calculados estimando el máximo número de ceros en la representación binaria de cada número en el conjunto . Si el máximo número de ceros observados es $n$ , un estimado para el número de elementos en el conjunto es $2^n$ .
+    \item {\bf Operaciones} \\
+    Add: Añade un elenento al conjunto.\\
+    Count: Nos arroja la cardinalidad el conjunto.\\
+     Merge: Para obtener la unión de dos conjuntos.
+\end{enumerate}
+\end{itemize}
 
 \section{ESTADO DEL ARTE}
 
