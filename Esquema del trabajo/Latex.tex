@@ -13,12 +13,12 @@
 }
 
 \author{Samuel Leiva$^{1}$, Junior Micha$^{2}$, Danilo Blas$^{3}$, Joel Janampa$^{4}$, Brener Bustillos$^{5}$%
-\thanks{Manuscrito creado en los primeros dias de setiembre del 2018; cuya revisi\'on final ser\'a el dia 9 de Noviembre del 2018. \'Este trabajo es compatible en formato IEEE y se distribuye bajo el nombre \textbf{Proyecto cm-274} .El manuscrito puede ser encontrado en las cuentas github de los autores}% 
+\thanks{Manuscrito creado en los primeros d\'ias de setiembre del 2018; cuya revisi\'on final ser\'a el d\'ia 9 de Noviembre del 2018. \'Este trabajo es compatible en formato IEEE y se distribuye bajo el nombre \textbf{Proyecto cm-274} .El manuscrito puede ser encontrado en las cuentas GitHub de los autores}% 
 \thanks{$^{1}$ S. Leiva es estudiante pregrado de Ciencias de la Computaci\'on, Universidad Nacional de Ingenier\'ia, 2015-2021, Lima, Per\'u.
         {\tt\small https://github.com/SamuelLeiva}}%
 \thanks{$^{2}$ J. Micha es estudiante pregrado de Matem\'atica, Universidad Nacional de Ingenier\'ia, 2016-2022, Lima, Per\'u.
         {\tt\small https://github.com/JMicha23}}%
-\thanks{$^{3}$ D. Blas es estudiante pregrado Ciencias de la Computaci\'on ,Universidad Nacional de Ingenier\'ia, 2015-2021, Lima,Per\'u.
+\thanks{$^{3}$ D. Blas es estudiante pregrado de Ciencias de la Computaci\'on ,Universidad Nacional de Ingenier\'ia, 2015-2021, Lima,Per\'u.
         {\tt\small https://github.com/Sdann26}}%
 \thanks{$^{4}$ J. Janampa es estudiante pregrado de Matem\'atica, Universidad Nacional de Ingenier\'ia, 2015-2021, Lima, Per\'u.
         {\tt\small https://github.com/JoelJanampaBautista}}%
@@ -36,40 +36,40 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-    
-
-Este articulo matem\'atico-computacional presenta los resultados obtenidos mediante un proceso de investigaci\'on sobre algunas estructuras de datos alternativas que pueden hacer que el trabajo de an\'alisis de datos sea un m\'as eficaz, antes de usar t\'ecnicas como un cl\'uster de co\'mputo para ejecutar herramientas distribuidas de co\'mputo paralelo como por ejemplo  Hadoop y Spark que son herramientas correctas, pero muy costosas.
+   
+\'Este art\'iculo matem\'atico-computacional presentar\'a los resultados obtenidos ,mediante un proceso de investigaci\'on conjunta, sobre tres estructuras de datos que pueden hacer el trabajo de an\'alisis de datos sea una mejor alternativa ademas de ser muy potente; antes de usar t\'ecnicas como un cl\'uster de c\'omputo para ejecutar herramientas distribuidas de c\'omputo paralelo como por ejemplo  Hadoop y Spark que son herramientas correctas, pero muy costosas.Para entender mejor estas herramientas usaremos dos lenguajes de programaci\'on que nos ayudar\'an a visualizar mucho mejor todo el an\'alisis a realizar. 
 
 \end{abstract}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{INTRODUCCI\'ON}
 
-Este arti\'culo describe tres estructura de datos probabilísticas: Bloom Fitler, Count-min sketch e HyperLogLog, programaremos cada uno en lenguaje R y/o Python y comprobaremos su funcionamiento para el conteo y las consultas referidas a elementos dentro de un conjunto.
+\'Este art\'iculo describe tres estructuras de datos probabil\'isticos: Bloom Fitler, Count-min sketch e HyperLogLog. para poder verificar la forma de soluci\'on al problema de cada uno de ellas usaremos la programaci\'on en lenguaje R y/o Python, como principal herramienta de soluci\'on del problema; que es en este caso el conteo y las consultas referidas a elementos dentro de un conjunto que veremos m\'as adelante.
 
 \subsection{Objetivos}
+
 \begin{itemize}
     \item Aplicar la estructura bloom Fitler para hacer consultas sobre elementos que puedan pertenecer al conjunto analizado. 
-    \item Usar la estructura Count-min sketch.
+    \item Usar la estructura Count-min sketch como tabla de frecuencia de eventos en una secuencia de datos.
     \item Calcular el número aproximado de elementos en un multiconjunto usando la estructura HyperLogLog. 
 \end{itemize}
 
-En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un problema real. En el primer (Bloom Filter) generaremos un conjuntos de n elementos aleatorios, seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch, finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
+En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un problema real. En el primer (Bloom Filter) generaremos un conjuntos de \textbf{n} elementos aleatorios, seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch, finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
 
 \section{RESUMEN}
 \subsection{BLOOM FITLER}
 \begin{itemize}
     \item Estructura de datos espacio eficiente (Borton Howard Bloom -1970).
     \item Usado para probar si un elemento es miembro de un conjunto.
-    \item Una consulta arroja ``posiblemente en el conjunto" (falso positivo)  o ``definitivamente no en el conjunto" (falso negativo).
+    \item Una consulta arroja "posiblemente en el conjunto" (falso positivo)  o "definitivamente no en el conjunto" (falso negativo).
     \item Se puede agregar elementos al conjunto pero no removerlos.
     \item Mayores elementos con añadidos , mayores probabilidad de falsos positivos .
     \item Generalmente , menos de 10 bits por elemento son requeridos para un 1\% de probabilidad falso positivo , independientemente del tamaño o número de elementos del set .
     \begin{enumerate}
-    \item {\bf Descripción de un algoritmo}: Arreglo de m bits , todo en 0 . También debe haber k funciones hash , cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
-    \item {\bf Para añadir un elemento}: Se alimenta a cada una de las k funciones para obtener k posiciones en el arreglo . Todas esas posiciones se van a 1 .
-    \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las k funciones para obtener k posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto , si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
+    \item {\bf Descripción de un algoritmo}: Arreglo de \textbf{m} bits , todo en 0 . También debe haber \textbf{k} funciones hash , cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
+    \item {\bf Para añadir un elemento}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , Todas esas posiciones se van a 1.
+    \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto , si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
 \end{enumerate}
 \subsection{COUNT-MIN SKETCH}
 \begin{itemize}
@@ -81,10 +81,10 @@ En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un
 \end{enumerate}
 \subsection{HYPERLOGLOG}
 \begin{itemize}
-    \item Algoritmo para el conteo distintivo , aproximando el número de distintos elementos en un multiconjunto . Es capaz de estimar cardinalidades mayor a $10^9$ con una certeza del 2\% usando 1,5 kb de memoria.
+    \item Algoritmo para el conteo distintivo , aproximando el n\'umero de distintos elementos en un multiconjunto . Es capaz de estimar cardinalidades mayor a $10^9$ con una certeza del 2\% usando 1,5 kb de memoria.
 \end{itemize}
 \begin{enumerate}
-    \item {\bf Algoritmo}: Se basa en la observación de que las cardinalidades de un multiconjunto de números aleatorios uniformemente distribuidos pueden ser calculados estimando el máximo número de ceros en la representación binaria de cada número en el conjunto . Si el máximo número de ceros observados es $n$ , un estimado para el número de elementos en el conjunto es $2^n$ .
+    \item {\bf Algoritmo}: Se basa en la observación de que las cardinalidades de un multiconjunto de n\'umeros aleatorios uniformemente distribuidos pueden ser calculados estimando el m\'aximo n\'umero de ceros en la representación binaria de cada n\'umero en el conjunto . Si el m\'aximo n\'umero de ceros observados es $n$ , un estimado para el n\'umero de elementos en el conjunto es $2^n$ .
     \item {\bf Operaciones} \\
     Add: Añade un elenento al conjunto.\\
     Count: Nos arroja la cardinalidad el conjunto.\\
@@ -130,9 +130,9 @@ En este articulo se presentan mejoras al algoritmo HyperLogLog reduciendo sus re
 	    \item
             Crear una estructura de datos Count-min Sketch.
 	    \item
-	    Introducción de los elementos de nuestro conjunto.
+	    Generar un arreglo bidimensional con eventos como elementos.
 	    \item
-	    Realizar una consulta puntual (point query) que nos permite saber la frecuencia de un evento(elemento) en particular.
+	    Realizar una consulta puntual (point query) que nos permite saber la frecuencia de un evento en particular.
 	    
         \end{enumerate}
 
