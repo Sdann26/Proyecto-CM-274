@@ -4,6 +4,8 @@
 
 \documentclass[journal]{IEEEtran}
 \hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
 \documentclass[letterpaper, 10 pt, conference]{ieeeconf} 
 \IEEEoverridecommandlockouts                
 \overrideIEEEmargins
@@ -111,40 +113,40 @@ En este articulo se presentan mejoras al algoritmo HyperLogLog reduciendo sus re
 \end{itemize}
 
 
-\section{DISEÑO DEL EXPERIMENTO}
+\section{DISE\~NO DEL EXPERIMENTO}
 
 \subsection{Implementaci\'on del Bloom Filter}
 
-    \begin{itemize}
+    \begin{enumerate}
 	    \item
-            1.Crear una estructura de datos Bloom Filter.
+            Crear una estructura de datos Bloom Filter.
 	    \item
-	    2.Generar un arreglo de elementos con la operaci\'on Add.
+	    Generar un arreglo de elementos con la operaci\'on Add.
 	    \item
-	    3.Realizar consultas(operaci\'on Query) para saber si un elemento en particular se encuentra en nuestro arreglo.
-        \end{itemize}
+	    Realizar consultas(operaci\'on Query) para saber si un elemento en particular se encuentra en nuestro arreglo.
+        \end{enumerate}
 
 \subsection{Implementaci\'on del Count-min Sketch}
 
-    \begin{itemize}
+    \begin{enumerate}
 	    \item
-            1.Crear una estructura de datos Count-min Sketch.
+            Crear una estructura de datos Count-min Sketch.
 	    \item
-	    2.Generar un arreglo bidimensional con eventos como elementos.
+	    Generar un arreglo bidimensional con eventos como elementos.
 	    \item
-	    3.
-        \end{itemize}
+	    
+        \end{enumerate}
 
 \subsection{Implementaci\'on del HyperLogLog}
 
-     \begin{itemize}
+     \begin{enumerate}
         \item
-            1.Crear una estructura de datos Hyperloglog
+            Crear una estructura de datos Hyperloglog
 	    \item
-	    2.Generaci\'on de un multiconjunto(arreglo) aleatorio con n\'umeros como elementos. 
+	    Generaci\'on de un multiconjunto(arreglo) aleatorio con n\'umeros como elementos. 
 	    \item
-	    3.Calculamos la cardinalidad del conjunto de n\'umeros creados.
-        \end{itemize}
+	    Calculamos la cardinalidad del conjunto de n\'umeros creados.
+        \end{enumerate}
 
 
 \subsection{Ecuaciones}
