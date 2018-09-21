@@ -52,7 +52,7 @@
 \begin{itemize}
     \item Aplicar la estructura bloom Fitler para hacer consultas sobre elementos que puedan pertenecer al conjunto analizado. 
     \item Usar la estructura Count-min sketch como tabla de frecuencia de eventos en una secuencia de datos.
-    \item Calcular el número aproximado de elementos en un multiconjunto usando la estructura HyperLogLog. 
+    \item Calcular el número aproximado de elementos en un multiconjunto usando la estructura HyperLogLog.\\ 
 \end{itemize}
 
 En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un problema real. En el primer (Bloom Filter) generaremos un conjuntos de \textbf{n} elementos aleatorios, seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch, finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
@@ -67,7 +67,7 @@ En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un
     \item Mayores elementos con añadidos, mayores probabilidad de falsos positivos .
     \item Generalmente, menos de 10 bits por elemento son requeridos para un 1\% de probabilidad falso positivo, independientemente del tamaño o número de elementos del set.\\
     \begin{enumerate}
-    \item {\bf Descripción de un algoritmo}: Arreglo de \textbf{m} bits , todo en 0 . También debe haber \textbf{k} funciones hash, cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
+    \item {\bf Descripción de un algoritmo}: Arreglo de \textbf{m} bits, todo en 0 . También debe haber \textbf{k} funciones hash, cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
     \item {\bf Para añadir un elemento}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , Todas esas posiciones se van a 1.
     \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto, si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
 \end{enumerate}
