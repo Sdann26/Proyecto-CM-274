@@ -9,7 +9,7 @@
 \IEEEoverridecommandlockouts                
 \overrideIEEEmargins
 
-\title{\LARGE \bf Aplicaci\'on de Estructuras de Datos Probabil\'isticos en
+\title{\LARGE \bf Aplicaci\'on y Análisis de Estructuras de Datos Probabil\'isticos sobre diferentes conjuntos. 
 }
 
 \author{Samuel Leiva$^{1}$, Junior Micha$^{2}$, Danilo Blas$^{3}$, Joel Janampa$^{4}$, Brener Bustillos$^{5}$%
@@ -37,7 +37,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
    
-\'Este art\'iculo matem\'atico-computacional presentar\'a los resultados obtenidos ,mediante un proceso de investigaci\'on conjunta, sobre tres estructuras de datos que pueden hacer el trabajo de an\'alisis de datos sea una mejor alternativa ademas de ser muy potente; antes de usar t\'ecnicas como un cl\'uster de c\'omputo para ejecutar herramientas distribuidas de c\'omputo paralelo como por ejemplo  Hadoop y Spark que son herramientas correctas, pero muy costosas.Para entender mejor estas herramientas usaremos dos lenguajes de programaci\'on que nos ayudar\'an a visualizar mucho mejor todo el an\'alisis a realizar. 
+\'Este art\'iculo matem\'atico-computacional presentar\'a los resultados obtenidos, mediante un proceso de investigaci\'on conjunta, sobre tres estructuras de datos que pueden hacer el trabajo de an\'alisis de datos sea una mejor alternativa ademas de ser muy potente; antes de usar t\'ecnicas como un cl\'uster de c\'omputo para ejecutar herramientas distribuidas de c\'omputo paralelo como por ejemplo  Hadoop y Spark que son herramientas correctas, pero muy costosas.Para entender mejor estas herramientas usaremos dos lenguajes de programaci\'on que nos ayudar\'an a visualizar mejor todo el an\'alisis a realizar. 
 
 \end{abstract}
 
@@ -64,27 +64,27 @@ En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un
     \item Usado para probar si un elemento es miembro de un conjunto.
     \item Una consulta arroja "posiblemente en el conjunto" (falso positivo)  o "definitivamente no en el conjunto" (falso negativo).
     \item Se puede agregar elementos al conjunto pero no removerlos.
-    \item Mayores elementos con añadidos , mayores probabilidad de falsos positivos .
-    \item Generalmente , menos de 10 bits por elemento son requeridos para un 1\% de probabilidad falso positivo , independientemente del tamaño o número de elementos del set .
+    \item Mayores elementos con añadidos, mayores probabilidad de falsos positivos .
+    \item Generalmente, menos de 10 bits por elemento son requeridos para un 1\% de probabilidad falso positivo, independientemente del tamaño o número de elementos del set.\\
     \begin{enumerate}
-    \item {\bf Descripción de un algoritmo}: Arreglo de \textbf{m} bits , todo en 0 . También debe haber \textbf{k} funciones hash , cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
+    \item {\bf Descripción de un algoritmo}: Arreglo de \textbf{m} bits , todo en 0 . También debe haber \textbf{k} funciones hash, cada uno de los cuales mapea algún elemento a una de las m posiciones (distribución aleatoria uniforme). 
     \item {\bf Para añadir un elemento}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , Todas esas posiciones se van a 1.
-    \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto , si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
+    \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto, si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
 \end{enumerate}
 \subsection{COUNT-MIN SKETCH}
 \begin{itemize}
-    \item Sirve como una tabla de frecuencia de eventos en una data stream . Usa funciones hash para mapear eventos a frecuencias , pero solo usa espacios sub-lineales a costa de "sobrecontar algunos eventos a causa de colisiones (2003-Graham Cormode , S.Muthu Muthokrishnan).
+    \item Sirve como una tabla de frecuencia de eventos en una data stream . Usa funciones hash para mapear eventos a frecuencias, pero solo usa espacios sub-lineales a costa de "sobrecontar algunos eventos a causa de colisiones (2003-Graham Cormode, S.Muthu Muthokrishnan).
     \item Esencialmente es lo mismo que Bloom fitler, pero son usados de manera diferente y se ponen el tamaño de manera diferente.
 \end{itemize}
 \begin{enumerate}
-    \item {\bf Estructura}: El objetivo de count-min sketch es la de consumir un stream de eventos , uno a la vez , y contar la frecuencia de los diferentes tipos de eventos en el stream . En cualquier momento el sketch puede ser consultado para la frecuencia de un particular tipo de evento y regresará un estimado de esta frecuencia dentro de una cierta distancia de la frecuencia real , con una cierta probabilidad.
+    \item {\bf Estructura}: El objetivo de count-min sketch es la de consumir un stream de eventos, uno a la vez, y contar la frecuencia de los diferentes tipos de eventos en el stream. En cualquier momento el sketch puede ser consultado para la frecuencia de un particular tipo de evento y regresará un estimado de esta frecuencia dentro de una cierta distancia de la frecuencia real, con una cierta probabilidad.
 \end{enumerate}
 \subsection{HYPERLOGLOG}
 \begin{itemize}
-    \item Algoritmo para el conteo distintivo , aproximando el n\'umero de distintos elementos en un multiconjunto . Es capaz de estimar cardinalidades mayor a $10^9$ con una certeza del 2\% usando 1,5 kb de memoria.
+    \item Algoritmo para el conteo distintivo, aproximando el n\'umero de distintos elementos en un multiconjunto. Es capaz de estimar cardinalidades mayor a $10^9$ con una certeza del 2\% usando 1,5 kb de memoria.
 \end{itemize}
 \begin{enumerate}
-    \item {\bf Algoritmo}: Se basa en la observación de que las cardinalidades de un multiconjunto de n\'umeros aleatorios uniformemente distribuidos pueden ser calculados estimando el m\'aximo n\'umero de ceros en la representación binaria de cada n\'umero en el conjunto . Si el m\'aximo n\'umero de ceros observados es $n$ , un estimado para el n\'umero de elementos en el conjunto es $2^n$ .
+    \item {\bf Algoritmo}: Se basa en la observación de que las cardinalidades de un multiconjunto de n\'umeros aleatorios uniformemente distribuidos pueden ser calculados estimando el m\'aximo n\'umero de ceros en la representación binaria de cada n\'umero en el conjunto . Si el m\'aximo n\'umero de ceros observados es $n$, un estimado para el n\'umero de elementos en el conjunto es $2^n$ .
     \item {\bf Operaciones} \\
     Add: Añade un elenento al conjunto.\\
     Count: Nos arroja la cardinalidad el conjunto.\\
