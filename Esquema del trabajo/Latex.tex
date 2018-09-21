@@ -1,4 +1,4 @@
-﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %2345678901234567890123456789012345678901234567890123456789012345678901234567890
 %        1         2         3         4         5         6         7         8
 
@@ -8,21 +8,20 @@
 \IEEEoverridecommandlockouts                
 \overrideIEEEmargins
 
-\title{\LARGE \bf Aplicaci\'on de Estructuras de Datos Probabilistico en
+\title{\LARGE \bf Aplicaci\'on de Estructuras de Datos Probabili\'sticos en
 }
 
-\author{Samuel Leiva$^{1}$, Junior Micha$^{2}$ , Danilo Blas$^{3}$ Joel Janampa$^{4}$, Brener Bustillos$^{5}$% <-this % stops a space
-\thanks{Manuscrito creado el 11 de setiembre del 2018; cuya revisio\'n final sera el 363 de dicimebre .Este trabajo es compatible en formato IEEE y se distribuye bajo el Proyecto LaTeX.El manuscrito puede ser encontrado en los github de los autores}% <-this % stops a space
-\thanks{$^{1}$ S.Leiva es estudiante de ciencias de la computacion 
-        Universidad Nacional de Ingenieria,2015-2021, Lima,Peru.
+\author{Samuel Leiva$^{1}$, Junior Micha$^{2}$, Danilo Blas$^{3}$, Joel Janampa$^{4}$, Brener Bustillos$^{5}$% <-this % stops a space
+\thanks{Manuscrito creado el 21 de septiembre del 2018; cuya revisio\'n final sera el 9 de Noviembre. Este trabajo es compatible en formato IEEE y se distribuye bajo el Proyecto LaTeX.El manuscrito puede ser encontrado en los github de los autores}% <-this % stops a space
+\thanks{$^{1}$ S. Leiva es estudiante de pregrado de ciencias de la computacio\'n, Universidad Nacional de Ingenieri\'a, 2015-2021, Lima, Peru\'.
         {\tt\small https://github.com/SamuelLeiva}}%
-\thanks{$^{2}$ J.Micha es estudiante de pregrado de matematica ,Universidad Nacional de Ingenieria,2016-2022,Lima,Peru.
+\thanks{$^{2}$ J. Micha es estudiante de pregrado de matema\'tica, Universidad Nacional de Ingenieri\'a, 2016-2022, Lima, Peru\'.
         {\tt\small https://github.com/JMicha23}}%
-\thanks{$^{3}$ D.Blas es estudiante de ciencias de la computacion ,Universidad Nacional de Ingenieria,2015-2021,Lima,Peru.
+\thanks{$^{3}$ D. Blas es estudiante de pregrado ciencias de la computacio\'n ,Universidad Nacional de Ingenieri\'a, 2015-2021, Lima,Peru\'.
         {\tt\small https://github.com/Sdann26}}%
-\thanks{$^{4}$ J.Janampa es estudiante de matematica,Universidad Nacional de Ingenieria,2015-2021,Lima,Peru.
+\thanks{$^{4}$ J. Janampa es estudiante de pregrado de matema\'tica, Universidad Nacional de Ingenieri\'a, 2015-2021,Lima,Peru\'.
         {\tt\small https://github.com/JoelJanampaBautista}}%
-\thanks{$^{5}$ B.Bustillos es estudiante de matematica,Universidad Nacional de Ingenieria,Universidad Nacional de Ingenieria,Lima,Peru. 
+\thanks{$^{5}$ B. Bustillos es estudiante de pregrado de matema\'tica, Universidad Nacional de Ingenieri\'a, 2015-2021, Lima, Perú. 
         {\tt\small https://github.com/brenner-08}}%
 }
 
@@ -48,14 +47,17 @@ Este articulo matemático-computacional presenta los resultados obtenidos median
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{INTRODUCCIO\'N}
 
-Este artículo describe tres estructura de datos probabilísticos : Bloom Fitler , Count-min sketch e HyperLogLog , programaremos cada uno en lenguaje R y comprobaremos su funcionamiento para el conteo y las consultas referidas a elementos dentro de un conjunto.
+Este artículo describe tres estructura de datos probabilísticas: Bloom Fitler, Count-min sketch e HyperLogLog, programaremos cada uno en lenguaje R y/o Python y comprobaremos su funcionamiento para el conteo y las consultas referidas a elementos dentro de un conjunto.
+
 \subsection{Objetivos}
 \begin{itemize}
-    \item Usar la estructura bloom Fitler para hacer consultas sobre elementos que puedas pertenecer a la estructura. 
+    \item Aplicar la estructura bloom Fitler para hacer consultas sobre elementos que puedan pertenecer al conjunto analizado. 
     \item Usar la estructura Count-min sketch.
-    \item Usar la estructura HyperLogLog para calcular el número aproximado de elementos en un multiconjunto. 
+    \item Calcular el número aproximado de elementos en un multiconjunto usando la estructura HyperLogLog. 
 \end{itemize}
-En esta oportunidad usaremos cada una de las tres estructuras  . En el primer (Bloom Filter) generaremos un conjuntos de n elementos aleatorios , seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch , finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
+
+En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un problema real. En el primer (Bloom Filter) generaremos un conjuntos de n elementos aleatorios, seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch, finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
+
 \subsection{BLOOM FITLER}
 \begin{itemize}
     \item Estructura de datos espacio eficiente (Borton Howard Bloom -1970).
@@ -106,12 +108,10 @@ Este articulo presenta otras aplicaciones de la estructura de datos Count-min Sk
 
 En este articulo se presentan mejoras al algoritmo HyperLogLog reduciendo sus requisitos de memoria y aumentar su precisión para un rango importante de cardinalidades.\\
 
-\item \bf"Falta UNO" 
-
 \end{itemize}
 
 
-\section{OBJETIVOS}
+\section{DISEÑO DEL EXPERIMENTO}
 
 
 \subsection{JSJSJS}
