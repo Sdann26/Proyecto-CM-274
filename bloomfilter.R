@@ -46,14 +46,16 @@ is_vect <- function(x, vbits){
   return(TRUE)
 }
 
-is_vect("Juan",vect)
+is_vect("Julio",vect)
 is_vect("Bruno",vect)
 is_vect("jose",vect)
 is_vect("Luis",vect)
 is_vect("pepe",vect)
+is_vect("juan",vect)
 #y estos nombres son las personas a los que se quiere encontrar y ver si pertenecen dentro de la 
 #base de datos previamente insertados como: vect <- vbits(c("Brenner", "jesus", "lisi", "Brian", "raul","juan", "rober", 
 #"josé","Maria", "marco", "susana","jordi").
+#notaremos que el único implicado dentro del conjunto de personas buscadas en la base de datos solo se encontró a juan
 
 
 
