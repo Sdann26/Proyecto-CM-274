@@ -13,5 +13,5 @@
   **Github** *https://github.com/JMicha23/Proyecto-274*  
 * Bustillos Robles, Brian Brenner  
   **Github** *https://github.com/brenner-08/probabilidades* 
-* Aguilar Coronel, Andy Franco
+* Aguilar Coronel, Andy Franco \\
   **Github** *https://github.com/andyaguilar*
