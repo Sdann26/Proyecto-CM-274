@@ -15,7 +15,7 @@ elementos_presentes = ['hola','avion','sugerencia','optimismo','CM274',
 				'coherente','agregado','paz','colores','comedia',
 				'dientes','pelota','amable','generosidad','genial']
 
-# word not added
+# elementos no anhadidos para prueba
 elementos_nopresentes = ['salud','fiesta','suceso','pelea','guitarra',
 			'viaje','apacible','ventaja','google','estatua',
 			'trabajador','desfile']
