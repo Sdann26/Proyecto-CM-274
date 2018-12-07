@@ -1,10 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%2345678901234567890123456789012345678901234567890123456789012345678901234567890
-%        1         2         3         4         5         6         7         8
-
 \documentclass[journal]{IEEEtran}
 %\usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
 \documentclass[letterpaper, 10 pt, conference]{ieeeconf} 
 \IEEEoverridecommandlockouts                
 \overrideIEEEmargins
@@ -12,17 +11,13 @@
 \title{\LARGE \bf Aplicaci\'on y Análisis de Estructuras de Datos Probabil\'isticos. 
 }
 
-\author{Samuel Leiva$^{1}$, Junior Micha$^{2}$, Danilo Blas$^{3}$, Joel Janampa$^{4}$, Brener Bustillos$^{5}$%
-\thanks{Manuscrito creado en los primeros d\'ias de setiembre del 2018; cuya revisi\'on final ser\'a el d\'ia 9 de Noviembre del 2018. \'Este trabajo es compatible en formato IEEE y se distribuye bajo el nombre \textbf{Proyecto cm-274} .El manuscrito puede ser encontrado en las cuentas GitHub de los autores}% 
-\thanks{$^{1}$ S. Leiva es estudiante pregrado de Ciencias de la Computaci\'on, Universidad Nacional de Ingenier\'ia, 2015-2021, Lima, Per\'u.
-        {\tt\small https://github.com/SamuelLeiva}}%
+\author{Andy Aguilar$^{1}$, Junior Micha$^{2}$, Brener Bustillos$^{3}$%
+\thanks{Manuscrito creado en los primeros d\'ias de setiembre del 2018; cuya revisi\'on final es el d\'ia 07 de diciembre del 2018. \'Este trabajo es compatible en formato IEEE y se distribuye bajo el nombre \textbf{Proyecto cm-274} .El manuscrito puede ser encontrado en las cuentas GitHub de los autores}% 
+\thanks{$^{1}$ A. Aguilar es estudiante pregrado de Ciencias de la Computaci\'on, Universidad Nacional de Ingenier\'ia, 2015-2021 , Lima, Per\'u.
+        {\tt\small https://github.com/andyaguilar}}%
 \thanks{$^{2}$ J. Micha es estudiante pregrado de Matem\'atica, Universidad Nacional de Ingenier\'ia, 2016-2022, Lima, Per\'u.
         {\tt\small https://github.com/JMicha23}}%
-\thanks{$^{3}$ D. Blas es estudiante pregrado de Ciencias de la Computaci\'on ,Universidad Nacional de Ingenier\'ia, 2015-2021, Lima,Per\'u.
-        {\tt\small https://github.com/Sdann26}}%
-\thanks{$^{4}$ J. Janampa es estudiante pregrado de Matem\'atica, Universidad Nacional de Ingenier\'ia, 2015-2021, Lima, Per\'u.
-        {\tt\small https://github.com/JoelJanampaBautista}}%
-\thanks{$^{5}$ B. Bustillos es estudiante pregrado de Matem\'atica, Universidad Nacional de Ingenier\'ia, 2015-2021, Lima, Per\'u. 
+\thanks{$^{3}$ B. Bustillos es estudiante pregrado de Matem\'atica, Universidad Nacional de Ingenier\'ia, 2015-2021, Lima, Per\'u. 
         {\tt\small https://github.com/brenner-08}}%
 }
 
@@ -58,7 +53,7 @@
 En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un problema real. En el primer (Bloom Filter) generaremos un conjuntos de \textbf{n} elementos aleatorios, seguidamente utilizaremos las funciones añadir y query(consultar) para añadir elementos y consultar si algún elemento pertenece al conjunto que hemos generado en el caso de la estructura Count-min sketch, finalmente con la estructura HyperLogLog generaremos un multiconjunto grande el cual calcularemos al cardinalidad de un elemento específico con una excatitud del 2\% usando 1,5kb de memoria.
 
 \section{RESUMEN}
-\subsection{BLOOM FITLER}
+\subsection{BLOOM FILTER}
 \begin{itemize}
     \item Estructura de datos espacio eficiente (Borton Howard Bloom -1970).
     \item Usado para probar si un elemento es miembro de un conjunto.
@@ -71,6 +66,9 @@ En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un
     \item {\bf Para añadir un elemento}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , Todas esas posiciones se van a 1.
     \item {\bf Para consultar(si es que el elemento está)}: Se alimenta a cada una de las \textbf{k} funciones para obtener \textbf{k} posiciones en el arreglo , si algunas de las posiciones son 0 el elemento definitivamente no se encuentra en el conjunto, si todos son 1, entonces o bien el elemento está o los bits han sidos puestos a 1 cuando fueron insertados.
 \end{enumerate}
+Una implementaci\'on del algoritmo lo encontramos en $\textbf{[1]}.$
+
+
 \subsection{COUNT-MIN SKETCH}
 \begin{itemize}
     \item Sirve como una tabla de frecuencia de eventos en una data stream . Usa funciones hash para mapear eventos a frecuencias, pero solo usa espacios sub-lineales a costa de "sobrecontar algunos eventos a causa de colisiones (2003-Graham Cormode, S.Muthu Muthokrishnan).
@@ -79,6 +77,10 @@ En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un
 \begin{enumerate}
     \item {\bf Estructura}: El objetivo de count-min sketch es la de consumir un stream de eventos, uno a la vez, y contar la frecuencia de los diferentes tipos de eventos en el stream. En cualquier momento el sketch puede ser consultado para la frecuencia de un particular tipo de evento y regresará un estimado de esta frecuencia dentro de una cierta distancia de la frecuencia real, con una cierta probabilidad.
 \end{enumerate}
+
+
+Una implementaci\'on del algoritmo lo encontramos en $\textbf{[1]}.$
+
 \subsection{HYPERLOGLOG}
 \begin{itemize}
     \item Algoritmo para el conteo distintivo, aproximando el n\'umero de distintos elementos en un multiconjunto. Es capaz de estimar cardinalidades mayor a $10^9$ con una certeza del 2\% usando 1,5 kb de memoria.
@@ -91,6 +93,8 @@ En esta oportunidad usaremos cada una de las tres estructuras aplicadas sobre un
      Merge: Para obtener la unión de dos conjuntos.
 \end{enumerate}
 \end{itemize}
+
+Una implementaci\'on del algoritmo lo encontramos en $\textbf{[1]}.$
 
 \section{ESTADO DEL ARTE}
 
@@ -146,6 +150,42 @@ En este articulo se presentan mejoras al algoritmo HyperLogLog reduciendo sus re
 	    \item
 	    Calculamos la cardinalidad del conjunto de n\'umeros creados.
         \end{enumerate}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
+        
+\section{OBSERVACIONES} 
+\textbf{Bloom Filter. }
+\begin{enumerate}
+\item Una observacion en este tipo de estructura de datos es que depende de la cantidad de hash(k) y del nùmero de bits(m) para calcular el nùmero de falsos positivos.
+\item No podemos eliminar elementos del filtro, a no ser que haya otro filtro bloom.
+\item Se puede insertar tantos elementos como se desee.
+\end{enumerate}
+\textbf{Count Min Sketch. }
+\begin{enumerate}
+\item Esta estructura inusual de \textit{Count Min Sketch } no secesita asignar nueva memoria cuando agregamos un nuevo evento al conjunto ademas de que el programa debe ejecfutarse en la misma cantidad de tiempo con la misma cantidad de memoria.\\
+\end{enumerate}
+\textbf{Hyper Log Log. }
+\begin{enumerate}
+\item El HyperLogLog tiene tres operaciones principales: agregar para agregar un nuevo elemento al conjunto, contar para obtener la cardinalidad del conjunto y combinar para obtener la unión de dos conjuntos.
+\item Los datos del HyperLogLog se almacenan en una matriz M de contadores llamados registros con tamaño m que se establecen en 0 en su estado inicial.
+\end{enumerate}
+
+\section{CONCLUSIONES}
+\textbf{Bloom Filter. }
+\begin{enumerate}
+\item Esta aplicacion es una de las mas asertadas a la hora de delimitar un conjunto de elementos dentro de un conjunto mucho mayor, puesto que nos facilita la operacion a la hora de encontar un grupo selecto gracias a las funciones hash que es con mucho ahorro de memoria.
+\end{enumerate}
+\textbf{Count Min Sketch. }
+\begin{enumerate}
+\item Un boceto de Count Min típicamente tiene un número sublineal de celdas, relacionado con la calidad de aproximación deseada del boceto, mientras que un  Bloom Filter de conteo tiene un tamaño más típico para coincidir con el número de elementos en el conjunto.
+
+\end{enumerate}
+\textbf{Hyper Log Log. }
+\begin{enumerate}
+\item La técnica HyperLogLog, sin embargo, está sesgada para cardinalidades pequeñas por debajo de un umbral de ${\textstyle {\frac {5}{2}} m}$. El artículo original propone el uso de un algoritmo diferente para cardinalidades pequeñas conocidas como conteo lineal. En el caso de que la estimación proporcionada anteriormente sea menor que el umbral ${\textstyle E <{\frac{5}{2}} m}$.
+
+\end{enumerate}
+\footnote{\textbf{https://github.com/Sdann26/Proyecto-CM-274/commits?author=andyaguilar}}.
 
 \begin{thebibliography}{3}
 
@@ -157,6 +197,10 @@ https://storage.googleapis.com/pub-tools-public-publication-data/pdf/40671.pdf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibitem{c3} G.Cormode,S.Muthukrishnan(2003),\textit{An Improved Data Stream Summary: The Count-Min Sketch and its Applications}.[Online].Available:
 http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibitem{c4} G.Pitel,G.Fouquier(2015),\textit{Count -Min-Log Sketch: Approximately counting with approximate counters}.[Online].Available:
+https://ieeexplore.ieee.org/document/1498233
+\bibitem{c5} https://www.jasondavies.com/bloomfilter/
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{thebibliography}
 
