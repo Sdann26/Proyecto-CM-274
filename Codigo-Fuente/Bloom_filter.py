@@ -14,13 +14,13 @@ class BloomFilter(object):
         # Probabilidad de un falso positivo
         self.prob_fp = prob_fp
 
-        # Tamanho en bits del vector
+        # Cantidad de elementos en el vector
         self.size = self.get_size(items_count,prob_fp)
 
         # numeros de funciones hash que usaremos
         self.hash_count = self.get_hash_count(self.size,items_count)
 
-        # Bit array del tamanho
+        # Tamanho de bits del vector
         self.bit_array = bitarray(self.size)
 
         # inicializa todos los bits en 0
