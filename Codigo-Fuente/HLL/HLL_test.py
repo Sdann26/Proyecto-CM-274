@@ -2,6 +2,10 @@
 from HLL import HyperLogLog
 from HLL import get_SHA1_bin
 
+#probamos la codificacion de sha1
+print 'El codigo SHA1 de "hola" es '
+print get_SHA1_bin('hola')
+
 a = HyperLogLog(2000000,0.05)
 b = HyperLogLog(2000000,0.05)
 c = HyperLogLog(2000000,0.05)
