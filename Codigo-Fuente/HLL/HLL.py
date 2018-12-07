@@ -36,7 +36,7 @@ class HyperLogLog(object):
         hace una estimacion de los valores unicos ingresados con un porcentaje
         de error.
         """
-        #Algunos valores preestablecidos para alfa
+        #Valores preestablecidos para la funcion alfa
         self.__ALPHA16=0.673
         self.__ALPHA32=0.697
         self.__ALPHA64=0.709
@@ -68,11 +68,12 @@ class HyperLogLog(object):
         """
         anhadimos un elemento al HyperLogLog
         """
+        #Codificacion en binario del elemento
         binword = get_SHA1_bin(item)
         pos = int(binword[:self._k],2)
-        #Retrives the position of leftmost 1
+        #Recupera la posicion 1 mas a la izquierda
         aux = get_index(binword[self._k:],160-self._k)
-        # Sets its own register value to maximum value seen so far
+        #Cambia su valor registro al maximo valor visto
         self._bucketList[pos] = max(aux,self._bucketList[pos])
 
 
